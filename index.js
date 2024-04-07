@@ -8,7 +8,7 @@ const port = PORT;
 const mongoURI = MONGODB_URL;
 
 global.__basedir = __dirname;
-mongoose.connect(mongoURI);
+// mongoose.connect(mongoURI);
 mongoose.connect(mongoURI, {
   dbName: "ecommerce",
 })
