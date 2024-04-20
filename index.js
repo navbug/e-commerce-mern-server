@@ -10,7 +10,7 @@ const mongoURI = MONGODB_URL;
 global.__basedir = __dirname;
 // mongoose.connect(mongoURI);
 mongoose.connect(mongoURI, {
-  dbName: "ecommerce",
+  dbName: "ecommerce_db",
 })
 
 mongoose.connection.on("connected", () => {
