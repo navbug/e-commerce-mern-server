@@ -125,36 +125,4 @@ router.delete("/deleteUser/:userId", protectedResource, (req, res) => {
     });
 });
 
-//Wishlist API
-// router.patch(
-//   "/updateWishlist/:userId",
-//   async (req, res) => {
-//     const userId = req.params.userId;
-//     const {productId: likedProductId, notExist} = req.body;
-
-//     UserModel.findById(userId)
-//       .then((user) => {
-//         if (!user) {
-//           return res.status(404).json({ error: "User not found" });
-//         }
-
-//         if(notExist === true) {
-//           user.wishlist.push(likedProductId);
-//         } else if(notExist === false) {
-//           user.wishlist = user.wishlist.filter((productId) => {
-//             return productId._id !== likedProductId
-//           });
-//         }
-//         return user.save();
-//       })
-//       .then((updatedUser) => {
-//         res.json(updatedUser);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//         res.status(500).json({ error: "Internal server error" });
-//       });
-//   }
-// );
-
 module.exports = router;
