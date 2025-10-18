@@ -7,7 +7,11 @@ const { PORT, MONGODB_URL } = require("./config");
 const port = PORT;
 const mongoURI = MONGODB_URL;
 
-app.use(cors());
+const corsOptions = {
+  origin: ["https://e-commerce-mern-frontend-kappa.vercel.app/", "http://localhost:5173"]
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 global.__basedir = __dirname;
 
