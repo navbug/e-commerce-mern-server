@@ -8,10 +8,13 @@ const port = PORT;
 const mongoURI = MONGODB_URL;
 
 const corsOptions = {
-  origin: ["https://e-commerce-mern-frontend-kappa.vercel.app/", "http://localhost:5173"],
-  credeentials: true,
+  origin: [
+    "https://e-commerce-mern-frontend-kappa.vercel.app", 
+    "http://localhost:5173"
+  ],
+  credentials: true,
   optionsSuccessStatus: 200
-}
+};
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -66,4 +69,4 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-// module.exports = app
+module.exports = app
