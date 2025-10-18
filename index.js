@@ -8,7 +8,9 @@ const port = PORT;
 const mongoURI = MONGODB_URL;
 
 const corsOptions = {
-  origin: ["https://e-commerce-mern-frontend-kappa.vercel.app/", "http://localhost:5173"]
+  origin: ["https://e-commerce-mern-frontend-kappa.vercel.app/", "http://localhost:5173"],
+  credeentials: true,
+  optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions));
