@@ -11,37 +11,37 @@ app.use(cors());
 app.use(express.json());
 global.__basedir = __dirname;
 
-// mongoose.connect(mongoURI, {
-//   dbName: "ecommerce_db",
-// })
-// mongoose.connection.on("connected", () => {
-//   console.log("Connected");
-// });
-// mongoose.connection.on("error", (error) => {
-//   console.log(`Error connecting to DB: ${error}`);
-// });
-
-let isConnected = false;
-
-async function connectToMongoDB() {
-  try {
-    await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopolog: true
-    });
-    isConnected = true;
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-  }
-}
-
-app.use((req, res, next) => {
-  if(!isConnected) {
-    connectToMongoDB();
-  }
-  next();
+mongoose.connect(mongoURI, {
+  dbName: "ecommerce_db",
 })
+mongoose.connection.on("connected", () => {
+  console.log("Connected");
+});
+mongoose.connection.on("error", (error) => {
+  console.log(`Error connecting to DB: ${error}`);
+});
+
+// let isConnected = false;
+
+// async function connectToMongoDB() {
+//   try {
+//     await mongoose.connect(process.env.MONGODB_URL, {
+//       useNewUrlParser: true,
+//       useUnifiedTopolog: true
+//     });
+//     isConnected = true;
+//     console.log("Connected to MongoDB");
+//   } catch (error) {
+//     console.error("Error connecting to MongoDB:", error);
+//   }
+// }
+
+// app.use((req, res, next) => {
+//   if(!isConnected) {
+//     connectToMongoDB();
+//   }
+//   next();
+// })
 
 require("./models/user_model");
 require("./models/product_model");
@@ -56,8 +56,8 @@ app.use(require("./routes/payment_route"));
 
 
 
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
-module.exports = app
+// module.exports = app
