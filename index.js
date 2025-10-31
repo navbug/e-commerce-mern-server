@@ -9,7 +9,7 @@ const mongoURI = MONGODB_URL;
 
 const corsOptions = {
   origin: [
-    "https://e-commerce-mern-frontend-kappa.vercel.app", 
+    "https://e-commerce-mern-frontend-mu.vercel.app/", 
     "http://localhost:5173"
   ],
   credentials: true,
